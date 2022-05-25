@@ -2,7 +2,7 @@
 
 This project was generated with Angular CLI version 13.3.5.
 
-<a href="https://tabular-data-editor-dd894.web.app" target="_blank"><h2>Перейти к приложению</h2></a>
+<a href="https://json-edit-table.web.app" target="_blank"><h2>Перейти к приложению</h2></a>
 
 ## Описание
 
