@@ -1,0 +1,45 @@
+<div *ngIf="error" class="error__box">
+  <small class="alert-danger">Ошибка в формате введенных данных, вернитесь и провертье формат данных.</small>
+  <button routerLink="/loading" type="button" class="btn btn-secondary">Back</button>
+</div>
+
+<div *ngIf="!error" class="container">
+  <table class="table table-striped fs-5">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th *ngFor="let keys of jsonDataKeys" scope="col">{{keys}}</th>
+      <th class="col-md-1">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of dataService.inputJson$ | async; let index = index">
+      <th scope="row">{{index + 1}}</th>
+      <td *ngFor="let keys of jsonDataKeys">
+        <span>{{item[keys.toLowerCase()]}}</span>
+      </td>
+      <td class="btn__edit-delete">
+        <button (click)="onEdit(item)" type="button" class="btn btn-primary">Edit</button>
+        <button (click)="onDelete(index)" type="button" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="btn__box">
+    <button (click)="addItem()" type="button" class="btn btn-success">Add</button>
+    <button (click)="createAndDownloadCsv()" type="button" class="btn btn-success">Download file CSV</button>
+  </div>
+
+  <textarea>{{unloadStr}}</textarea>
+
+</div>
+
+<app-modal *ngIf="flagModal"
+           [jsonDataKeys]="jsonDataKeys"
+           [chooseItem]="chooseItem"
+           [modalTitle]="modalTitle"
+           [cloneObj]="cloneObj"
+           (close)="flagModal=false; this.unload()"
+           (btnAddClose)="dataService.deleteLastItem(jsonData)"
+></app-modal>

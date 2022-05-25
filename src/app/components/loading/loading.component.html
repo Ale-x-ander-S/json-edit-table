@@ -1,0 +1,15 @@
+<h1>Редактор табличных данных</h1>
+<div class="container">
+  <div class="load-file">
+    <input (change)="fileListener($event)"
+           class="form-control"
+           type="file"
+           accept=".csv"/>
+  </div>
+  <textarea [(ngModel)]="inputString" placeholder="Поле ввода данных"></textarea>
+  <small *ngIf="error" class="alert-danger">Выберите файл в формате SCV или введите данные в поле.</small>
+  <button (click)="onProceed()" type="button" class="btn btn-success">Proceed</button>
+</div>
+
+
+

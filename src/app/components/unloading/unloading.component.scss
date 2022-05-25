@@ -1,0 +1,41 @@
+td {
+  vertical-align: center;
+}
+
+.error__box {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  small {
+    text-align: center;
+  }
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.btn__edit-delete {
+  display: flex;
+  justify-content: end;
+
+  button + button {
+    margin-left: 5px;
+  }
+}
+
+.col-md-1 {
+  text-align: center;
+}
+
+.btn__box {
+  display: flex;
+  justify-content: space-between;
+}
+
+textarea {
+  margin-top: 50px;
+  width: 100%;
+}
